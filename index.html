@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/universal.css" />
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sjcl/1.0.8/sjcl.js"></script>
+    <script
+      src="https://kit.fontawesome.com/4b9b1b2686.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+
+    <title>DataGo</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="menu-btn">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+        <nav class="navbar">
+          <div class="logo">
+            <a href=""><img src="./Assets/logo.png" alt="" /></a>
+          </div>
+          <ul class="main-menu">
+            <li class="list-items"><a href="">About</a></li>
+            <li class="list-items"><a href="">Services</a></li>
+            <li class="list-items"><a href="">Contact</a></li>
+            <li class="list-items"><a href="">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="root">
+      
+
+      <!-- ----------------------------- -->
+      <div class="workfeild">
+        <div class="hero">
+          <h1>Share Your Files Without Limits</h1>
+          <p>
+            With DataGo, share files quickly, securely, and with ease. <br />
+            No more hassle, just seamless transfer.
+          </p>
+        </div>
+        <div class="func">
+          <div class="func2">
+          <form class="thefile">
+            <input id="file" type="file" />
+
+            <!-- <input
+              id="sendid"
+              type="text"
+              placeholder="Enter Receiver peer ID"
+            /> -->
+            <h2 class="iddetail">Enter Receiver Peer ID</h2>
+        <div class="peerid-inputs">
+            <input type="text" id="digit1" class="peerid-digit" maxlength="1" onkeyup="focusNext(this)" autocomplete="off">
+            <input type="text" id="digit2" class="peerid-digit" maxlength="1" onkeyup="focusNext(this)" autocomplete="off">
+            <input type="text" id="digit3" class="peerid-digit" maxlength="1" onkeyup="focusNext(this)" autocomplete="off">
+            <input type="text" id="digit4" class="peerid-digit" maxlength="1" onkeyup="focusNext(this)" autocomplete="off">
+            <input type="text" id="digit5" class="peerid-digit" maxlength="1" onkeyup="focusNext(this)" autocomplete="off">
+            <input type="text" id="digit6" class="peerid-digit" maxlength="1" onkeyup="focusNext(this)" autocomplete="off">
+        </div>
+          </form>
+          
+          <button onclick="shares()" class="btn-12" id="shareButton">
+            <span>Send file</span>
+          </button>
+
+          <a id="downloadLink" style="display: none">Download File</a>
+
+          <h4 id="peerdisplay">Your Peer ID is-- <br><span id="showid"></span></h4>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="scripts/index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="scripts/universal.js"></script>
+    <Script>function focusNext(current) {
+      if (current.value.length === 1) {
+          var next = current.nextElementSibling;
+          if (next && next.tagName.toLowerCase() === "input") {
+              next.focus();
+          }
+      }
+    }
+    
+    </Script>
+  </body>
+</html>

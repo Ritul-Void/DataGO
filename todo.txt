@@ -1,0 +1,7 @@
+chnages needed
+you can consider using a 
+more robust way to generate 
+peer IDs, such as using a
+ UUID library. 
+The current implementation 
+may generate duplicate IDs in rare cases.
