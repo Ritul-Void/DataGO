@@ -1,0 +1,17 @@
+/* Add your custom styles here */
+
+.root{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(244, 249, 253);
+}
+#title{
+    text-align: center;
+    font-size: 45px;
+    color: skyblue;
+
+}
+.thefile{
+    padding: 3em;
+    font-size: 20px;
+}

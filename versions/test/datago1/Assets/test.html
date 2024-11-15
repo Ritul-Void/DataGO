@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P2P Data Sharing</title>
+  <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+  <script>
+    function generatePeerId() {
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      let id = '';
+      for (let i = 0; i < 6; i++) {
+        id += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return id;
+    }
+
+    function storePeerId(id) {
+      const ids = JSON.parse(localStorage.getItem('generatedIds') || '[]');
+      ids.push(id);
+      localStorage.setItem('generatedIds', JSON.stringify(ids));
+    }
+
+    function isPeerIdUnique(id) {
+      const ids = JSON.parse(localStorage.getItem('generatedIds') || '[]');
+      return !ids.includes(id);
+    }
+
+    function getUniquePeerId() {
+      let id = generatePeerId();
+      while (!isPeerIdUnique(id)) {
+        id = generatePeerId();
+      }
+      storePeerId(id);
+      return id;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const uniquePeerId = getUniquePeerId();
+      console.log('Generated unique peer ID:', uniquePeerId);
+
+      // Initialize PeerJS with the unique ID
+      const peer = new Peer(uniquePeerId);
+
+      // Your PeerJS code here...
+
+      // Example: Open connection to another peer
+      peer.on('open', id => {
+        console.log('My peer ID is:', id);
+      });
+
+      // Handle incoming connections
+      peer.on('connection', conn => {
+        conn.on('data', data => {
+          console.log('Received', data);
+        });
+      });
+
+      // Example: Connect to a peer by ID
+      document.getElementById('connectBtn').addEventListener('click', () => {
+        const peerIdToConnect = document.getElementById('peerIdInput').value;
+        const conn = peer.connect(peerIdToConnect);
+
+        conn.on('open', () => {
+          conn.send('Hello!');
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <input type="text" id="peerIdInput" placeholder="Enter peer ID to connect">
+  <button id="connectBtn">Connect</button>
+</body>
+</html>
