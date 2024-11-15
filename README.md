@@ -11,10 +11,9 @@
 
 1. **Peer-to-Peer File Sharing**: Uses WebRTC to transfer files directly between users without relying on servers.
 2. **Compression**: Supports Brotli and Zstandard for compressing files, reducing transfer time.
-3. **End-to-End Encryption**: AES-256 encryption ensures that files are transferred securely.
-4. **Real-Time Progress Bar**: Tracks upload and download progress with a visual progress bar.
-5. **File Sharing**: Upload multiple files and send them to another user with a unique ID.
-6. **Easy-to-Use Interface**: Simple, clean UI for copying your ID, entering the recipient's ID, and sending files.
+3. **Real-Time Progress Bar**: Tracks upload and download progress with a visual progress bar.
+4. **File Sharing**: Upload multiple files and send them to another user with a unique ID.
+5. **Easy-to-Use Interface**: Simple, clean UI for copying your ID, entering the recipient's ID, and sending files.
 
 ---
 
